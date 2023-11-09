@@ -1,0 +1,27 @@
+class GenericBox<T> {
+    private T value;
+
+    public GenericBox(T value) {
+        this.value = value;
+    }
+
+    public T getValue() {
+        return value;
+    }
+}
+
+class ExtendedBox<T> extends GenericBox<T> {
+    public ExtendedBox(T value) {
+        super(value);
+    }
+}
+
+public class GenericInheritanceExample {
+    public static void main(String[] args) {
+        GenericBox<Integer> intBox = new ExtendedBox<>(42);
+        GenericBox<String> stringBox = new ExtendedBox<>("Hello, Generics!");
+
+        System.out.println("Integer Value: " + intBox.getValue());
+        System.out.println("String Value: " + stringBox.getValue());
+    }
+}
